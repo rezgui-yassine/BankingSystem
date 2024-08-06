@@ -5,11 +5,13 @@ import Interface.DepositAndWithred;
 public class Accounts implements DepositAndWithred {
     private String accountNumber;
     private double balance;
+    private  String owner;
 
     public Accounts() {};
-    public Accounts(String accountNumber, double balance) {
+    public Accounts(String accountNumber, double balance, String owner) {
         this.accountNumber = accountNumber;
         this.balance = balance;
+        this.owner = accountNumber;
     }
 
     public String getAccountNumber() {
@@ -38,9 +40,20 @@ public class Accounts implements DepositAndWithred {
         }
     };
     @Override
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
         if(amount <=0){
             System.out.println("you can't withdraw amount <= 0");
         }
+        return false;
     };
+
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }
+
